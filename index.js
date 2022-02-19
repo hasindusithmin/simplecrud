@@ -45,8 +45,11 @@ const get_posts = async()=>{
                     'Content-Type':'application/json'
                 }
             })
-            // location.reload()
+            if (response.status == 200) {
+                location.reload()
+            }
         }
+
         td_del.appendChild(btn_del)
 
         // <td><button>UPD</button></td>
@@ -78,3 +81,5 @@ const get_posts = async()=>{
 }
 
 get_posts()
+
+
