@@ -57,7 +57,8 @@ const get_posts = async()=>{
         const btn_upd = document.createElement('button')
         btn_upd.innerHTML = "UPD";
         btn_upd.onclick = (e)=>{
-            location.replace('/update.html')
+            localStorage.setItem('id',id)
+            location.href = '/update.html'
         }   
         td_upd.appendChild(btn_upd)
         

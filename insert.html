@@ -10,15 +10,37 @@
     <button onclick="location.replace('/')">
         back
     </button>
-    <form id="myform">
-        <input type="text" name="title" placeholder="enter title..">
+    <form id="myform" autocomplete="off">
+        <input type="text" name="title" placeholder="enter title.." required>
         <br>
-        <input type="text" name="body" placeholder="enter body...">
+        <input type="text" name="body" placeholder="enter body..." required>
         <br>
         <input type="submit" value="save">
     </form>
     <script>
         const form = document.getElementById('myform');
+        form.onsubmit = async(e)=>{
+            e.preventDefault();
+            const title = e.target.title.value;
+            const body = e.target.body.value;
+            const data = {title,body}
+            const res = await fetch('http://localhost:3000/posts',{
+                method:'POST',
+                headers:{
+                    'Content-Type':'application/json'
+                },
+                body:JSON.stringify(data)
+            })
+
+            if (res.status == 201) {
+                location.href = '/'
+            }
+            else {
+                alert('somethin went wrong!')
+            }
+
+            
+        }
         
     </script>
 </body>
