@@ -31,9 +31,7 @@
       const password = e.target.password.value;
       createUserWithEmailAndPassword(auth,username,password)
         .then((cred)=>{
-            console.log('====================================');
-            console.log(cred);
-            console.log('====================================');
+            
         })
         .catch((err)=>{
             console.log('====================================');
@@ -50,9 +48,7 @@
       const password = e.target.password.value;
       signInWithEmailAndPassword(auth,username,password)
         .then((cred)=>{
-            console.log('================AIzaSyDEmms8bFY8oJcMvaFJUCoVl_DBbtWXZzA====================');
-            console.log(cred);
-            console.log('====================================');
+           
         })
         .catch((err)=>{
             console.log('====================================');
@@ -75,11 +71,10 @@
 
 onAuthStateChanged(auth,(user)=>{
     if (user) {
-        console.log('====================================');
-        console.log(user);
-        console.log('====================================');
+        document.getElementById('user').innerHTML = user.email;
     }
     else {
+        document.getElementById('user').innerHTML = ''
         console.log('====================================');
         console.log('user not found');
         console.log('====================================');
