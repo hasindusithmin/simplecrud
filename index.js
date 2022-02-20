@@ -31,7 +31,7 @@
       const password = e.target.password.value;
       createUserWithEmailAndPassword(auth,username,password)
         .then((cred)=>{
-            
+            document.getElementById('id01').style.display = 'none';
         })
         .catch((err)=>{
             console.log('====================================');
@@ -48,7 +48,7 @@
       const password = e.target.password.value;
       signInWithEmailAndPassword(auth,username,password)
         .then((cred)=>{
-           
+            document.getElementById('id02').style.display = 'none';
         })
         .catch((err)=>{
             console.log('====================================');
