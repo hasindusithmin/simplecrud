@@ -1,14 +1,14 @@
 
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
-  import {getAuth,createUserWithEmailAndPassword,signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js";
+  import {getAuth,createUserWithEmailAndPassword,signInWithEmailAndPassword,signOut,onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.6.7/firebase-auth.js";
   
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
 
   // Your web app's Firebase configuration
   const firebaseConfig = {
-    apiKey: "",
+    apiKey: "AIzaSyDEmms8bFY8oJcMvaFJUCoVl_DBbtWXZzA",
     authDomain: "dueprogetto.firebaseapp.com",
     projectId: "dueprogetto",
     storageBucket: "dueprogetto.appspot.com",
@@ -50,7 +50,7 @@
       const password = e.target.password.value;
       signInWithEmailAndPassword(auth,username,password)
         .then((cred)=>{
-            console.log('====================================');
+            console.log('================AIzaSyDEmms8bFY8oJcMvaFJUCoVl_DBbtWXZzA====================');
             console.log(cred);
             console.log('====================================');
         })
@@ -61,6 +61,30 @@
         })
   }
 
+
+  document.getElementById('signout').onclick = ()=>{
+        signOut(auth)
+            .then(()=>{
+                console.log('signout');
+            })
+            .catch(()=>{
+                console.log('error:signout');
+            })
+  }
+
+
+onAuthStateChanged(auth,(user)=>{
+    if (user) {
+        console.log('====================================');
+        console.log(user);
+        console.log('====================================');
+    }
+    else {
+        console.log('====================================');
+        console.log('user not found');
+        console.log('====================================');
+    }
+})
 
 
 
